@@ -1,0 +1,31 @@
+
+> app@0.0.0 test
+> vitest run
+
+
+ RUN  v5.0.5 D:/GitHub/sin_metodologia/app
+
+ ❯ src/ia/intenciones.test.js (8 tests | 1 failed) 9ms
+   ❯ parseIntencion (8)
+     × detecta "guardar estrategia" 3ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/ia/intenciones.test.js > parseIntencion > detecta "guardar estrategia"
+TypeError: Cannot read properties of null (reading 'accion')
+ ❯ src/ia/intenciones.test.js:42:14
+     40|   it('detecta "guardar estrategia"', () => {
+     41|     const r = parseIntencion('Guardá la estrategia actual')
+     42|     expect(r.accion).toBe('guardar_estrategia')
+       |              ^
+     43|   })
+     44|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 1 passed (2)
+      Tests  1 failed | 14 passed (15)
+   Start at  19:12:57
+   Duration  2.77s (environment 96%, transform 2%, import 1%, worker 1%, tests 1%)
+

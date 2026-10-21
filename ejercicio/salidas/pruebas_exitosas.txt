@@ -1,0 +1,13 @@
+
+> app@0.0.0 test
+> vitest run
+
+
+ RUN  v5.0.5 D:/GitHub/sin_metodologia/app
+
+
+ Test Files  2 passed (2)
+      Tests  15 passed (15)
+   Start at  19:14:10
+   Duration  2.50s (environment 98%, import 1%, worker 1%)
+
