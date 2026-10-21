@@ -92,7 +92,7 @@ export function remuestrear(demOrigen, widthOrigen, heightOrigen, widthDestino, 
  * disponible como en Node), cae a generarDEMSintetico y lo deja explícito
  * en el campo `fuente` del resultado.
  */
-export async function cargarDEM(lat, lng, { width = 240, height = 240, cellSize = 13, zoom = 13 } = {}) {
+export async function cargarDEM(lat, lng, { width = 240, height = 240, cellSize = 13, zoom = 13, timeoutMs = 7000 } = {}) {
   const t0 = typeof performance !== 'undefined' ? performance.now() : Date.now()
   let dem
   let fuente
@@ -104,7 +104,19 @@ export async function cargarDEM(lat, lng, { width = 240, height = 240, cellSize 
     }
     const { x, y, z } = lonLatATile(lng, lat, zoom)
     const url = `https://s3.amazonaws.com/elevation-tiles-prod/terrarium/${z}/${x}/${y}.png`
-    const resp = await fetch(url)
+    // IMPORTANTE (hallazgo real de este ejercicio, ver EQUIVOCACIONES.md):
+    // fetch() NO tiene timeout propio. En redes restringidas/sandboxeadas la
+    // conexión puede quedar colgada indefinidamente en vez de fallar rápido,
+    // lo que deja la UI pegada en "Cargando terreno…" para siempre. Por eso
+    // se agrega un AbortController con timeout explícito.
+    const controller = typeof AbortController !== 'undefined' ? new AbortController() : null
+    const timer = controller ? setTimeout(() => controller.abort(), timeoutMs) : null
+    let resp
+    try {
+      resp = await fetch(url, { signal: controller?.signal })
+    } finally {
+      if (timer) clearTimeout(timer)
+    }
     if (!resp.ok) throw new Error(`Terrarium HTTP ${resp.status}`)
     const blob = await resp.blob()
     const bitmap = await createImageBitmap(blob)

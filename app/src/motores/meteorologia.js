@@ -7,13 +7,22 @@
 
 const BASE_URL = 'https://api.open-meteo.com/v1/forecast'
 
-export async function cargarMeteo(lat, lon, { dias = 3 } = {}) {
+export async function cargarMeteo(lat, lon, { dias = 3, timeoutMs = 7000 } = {}) {
   const url =
     `${BASE_URL}?latitude=${lat}&longitude=${lon}` +
     `&hourly=temperature_2m,relative_humidity_2m,precipitation,wind_speed_10m,wind_direction_10m` +
     `&forecast_days=${dias}&timezone=America%2FSantiago`
 
-  const resp = await fetch(url)
+  // fetch() no tiene timeout propio (hallazgo real, ver EQUIVOCACIONES.md) ->
+  // se agrega AbortController para que esto nunca cuelgue la app.
+  const controller = typeof AbortController !== 'undefined' ? new AbortController() : null
+  const timer = controller ? setTimeout(() => controller.abort(), timeoutMs) : null
+  let resp
+  try {
+    resp = await fetch(url, { signal: controller?.signal })
+  } finally {
+    if (timer) clearTimeout(timer)
+  }
   if (!resp.ok) throw new Error(`Open-Meteo HTTP ${resp.status}`)
   const data = await resp.json()
   return procesarFWI(data)

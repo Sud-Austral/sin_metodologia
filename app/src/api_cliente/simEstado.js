@@ -6,7 +6,7 @@ export const estado = {
   simulacionId: 'demo-los-lagos-1',
   conversacionId: null,
   nombre: 'Los Lagos — Demo 15 enero',
-  tiempoMin: 0,
+  minutos: 0,
   hectareas: 0,
   ros: 0,
   alturaLlama: 0,
@@ -46,12 +46,12 @@ export function actualizarEstadisticas(parcial) {
 }
 
 export function registrarMuestraHistorial() {
-  estado.historialROS.push({ minutos: estado.tiempoMin, ros: estado.ros })
-  estado.historialHectareas.push({ minutos: estado.tiempoMin, hectareas: estado.hectareas })
+  estado.historialROS.push({ minutos: estado.minutos, ros: estado.ros })
+  estado.historialHectareas.push({ minutos: estado.minutos, hectareas: estado.hectareas })
 }
 
 export function reiniciarEstado() {
-  estado.tiempoMin = 0
+  estado.minutos = 0
   estado.hectareas = 0
   estado.ros = 0
   estado.pausado = false

@@ -1,0 +1,316 @@
+{
+  "1_despachoDesplegar": {
+    "ok": true,
+    "ms": 0.23,
+    "resultado": {
+      "recursoId": "R-22",
+      "tipo": "brigada",
+      "destino": {
+        "lat": -41.234,
+        "lng": -72.445,
+        "nombre": "Acceso Los Copihues"
+      },
+      "distanciaKm": 1.75,
+      "etaMin": 4.2,
+      "estado": "en_transito"
+    }
+  },
+  "2_despachoEta": {
+    "ok": true,
+    "ms": 0.11,
+    "resultado": {
+      "recursoId": "H-01",
+      "distanciaKm": 1.61,
+      "etaMin": 0.5
+    }
+  },
+  "3_simulacionAplicarRetardante": {
+    "ok": true,
+    "ms": 0.09,
+    "resultado": {
+      "producto": "Phos-Chek",
+      "volumenLitros": 1200,
+      "reduccionROSPct": 35,
+      "zona": {
+        "row": 120,
+        "col": 120,
+        "radioCeldas": 6
+      },
+      "duracionHoras": 4
+    }
+  },
+  "4_simulacionControl_pausar": {
+    "ok": true,
+    "ms": 0.07,
+    "resultado": {
+      "accion": "pausar",
+      "pausado": true,
+      "minutos": 65
+    }
+  },
+  "5_simulacionControl_reanudar": {
+    "ok": true,
+    "ms": 0.02,
+    "resultado": {
+      "accion": "reanudar",
+      "pausado": false,
+      "minutos": 65
+    }
+  },
+  "6_chatConsultar_pregunta_simple": {
+    "ok": true,
+    "ms": 13.17,
+    "resultado": {
+      "respuesta": "El ROS (Rate of Spread) actual es 8.2 m/min.\n\nEl frente avanza 492 metros cada hora.\n\nFactores:\n- Viento 22 km/h\n- Humedad 9%\n- Modelo K2\n\n[respuesta de plantilla local, sin WebGPU disponible]",
+      "timestamp": "2026-10-21T22:32:20.333Z",
+      "modelo": "fallback-template-local",
+      "tokensUtilizados": null,
+      "latenciaS": null,
+      "comandoEjecutado": null
+    }
+  },
+  "7_chatConsultar_comando_desplegar": {
+    "ok": true,
+    "ms": 1.77,
+    "resultado": {
+      "respuesta": "✅ Comando ejecutado: desplegar_recurso\n\n- Recurso: R-22\n- Dirección: norte\n- ETA: 4 min\n\n[respuesta de plantilla local, sin WebGPU disponible]",
+      "timestamp": "2026-10-21T22:32:20.335Z",
+      "modelo": "fallback-template-local",
+      "tokensUtilizados": null,
+      "latenciaS": null,
+      "comandoEjecutado": {
+        "accion": "desplegar_recurso",
+        "parametros": {
+          "recursoId": "R-22",
+          "direccion": "norte",
+          "lugar": "Los Copihues"
+        },
+        "textoOriginal": "Desplegar Brigada R-22 al norte, acceso Los Copihues",
+        "resultado": {
+          "recursoId": "R-22",
+          "tipo": "brigada",
+          "destino": {
+            "lat": -41.234,
+            "lng": -72.445,
+            "nombre": "Los Copihues"
+          },
+          "distanciaKm": 1.75,
+          "etaMin": 4.2,
+          "estado": "en_transito",
+          "etaPrevioCalculo": {
+            "recursoId": "R-22",
+            "distanciaKm": 1.75,
+            "etaMin": 4.2
+          }
+        }
+      }
+    }
+  },
+  "8_chatGuardarEstrategia": {
+    "ok": true,
+    "ms": 0.34,
+    "resultado": {
+      "ok": true,
+      "nombre": "Plan Brigada+Retardante Los Lagos T=65",
+      "id": 1,
+      "snapshot": {
+        "minutos": 65,
+        "hectareas": 45.3,
+        "ros": 8.2,
+        "recursos": [
+          {
+            "id": "R-22",
+            "estado": "en_transito",
+            "destino": {
+              "lat": -41.234,
+              "lng": -72.445,
+              "nombre": "Los Copihues"
+            }
+          },
+          {
+            "id": "H-01",
+            "estado": "disponible",
+            "destino": null
+          },
+          {
+            "id": "E-5",
+            "estado": "disponible",
+            "destino": null
+          }
+        ],
+        "fecha": "2026-10-21T22:32:20.335Z"
+      }
+    }
+  },
+  "9_analisisEstadisticas": {
+    "ok": true,
+    "ms": 0.05,
+    "resultado": {
+      "serieROS": [
+        {
+          "minutos": 0,
+          "ros": 6
+        },
+        {
+          "minutos": 5,
+          "ros": 6.15
+        },
+        {
+          "minutos": 10,
+          "ros": 6.3
+        },
+        {
+          "minutos": 15,
+          "ros": 6.45
+        },
+        {
+          "minutos": 20,
+          "ros": 6.6
+        },
+        {
+          "minutos": 25,
+          "ros": 6.75
+        },
+        {
+          "minutos": 30,
+          "ros": 6.9
+        },
+        {
+          "minutos": 35,
+          "ros": 7.05
+        },
+        {
+          "minutos": 40,
+          "ros": 7.2
+        },
+        {
+          "minutos": 45,
+          "ros": 7.35
+        },
+        {
+          "minutos": 50,
+          "ros": 7.5
+        },
+        {
+          "minutos": 55,
+          "ros": 7.65
+        },
+        {
+          "minutos": 60,
+          "ros": 7.8
+        },
+        {
+          "minutos": 65,
+          "ros": 7.95
+        }
+      ],
+      "serieHectareas": [
+        {
+          "minutos": 0,
+          "hectareas": 0
+        },
+        {
+          "minutos": 5,
+          "hectareas": 3.5
+        },
+        {
+          "minutos": 10,
+          "hectareas": 7
+        },
+        {
+          "minutos": 15,
+          "hectareas": 10.5
+        },
+        {
+          "minutos": 20,
+          "hectareas": 14
+        },
+        {
+          "minutos": 25,
+          "hectareas": 17.5
+        },
+        {
+          "minutos": 30,
+          "hectareas": 21
+        },
+        {
+          "minutos": 35,
+          "hectareas": 24.5
+        },
+        {
+          "minutos": 40,
+          "hectareas": 28
+        },
+        {
+          "minutos": 45,
+          "hectareas": 31.499999999999996
+        },
+        {
+          "minutos": 50,
+          "hectareas": 35
+        },
+        {
+          "minutos": 55,
+          "hectareas": 38.5
+        },
+        {
+          "minutos": 60,
+          "hectareas": 42
+        },
+        {
+          "minutos": 65,
+          "hectareas": 45.5
+        }
+      ],
+      "actual": {
+        "minutos": 65,
+        "hectareas": 45.3,
+        "ros": 8.2,
+        "alturaLlama": 12.5
+      },
+      "amenazadas": [
+        {
+          "nombre": "Escuela Pucatrihue",
+          "lat": -41.236,
+          "lng": -72.447,
+          "distanciaKm": 0.3
+        },
+        {
+          "nombre": "Puerto Montt",
+          "lat": -41.4717,
+          "lng": -72.9369,
+          "distanciaKm": 18.5
+        }
+      ]
+    }
+  },
+  "10_chatExportar_markdown": {
+    "ok": true,
+    "ms": 0.79,
+    "resultado": {
+      "formato": "markdown",
+      "nombreArchivo": "conversacion_1792621940336.md",
+      "tamanoBytes": 694,
+      "contenido": "# Conversación IA del Incendio\n\n- Fecha de exportación: 2026-10-21T22:32:20.336Z\n- Simulación: Los Lagos — Demo 15 enero\n- Tiempo transcurrido: 65 min\n- Superficie quemada: 45.3 ha\n- ROS: 8.2 m/min\n\n## Conversación (4 turnos)\n\n**Despachador**: ¿Cuál es el ROS actual?\n\n**IA**: El ROS (Rate of Spread) actual es 8.2 m/min.\n\nEl frente avanza 492 metros cada hora.\n\nFactores:\n- Viento 22 km/h\n- Humedad 9%\n- Modelo K2\n\n[respuesta de plantilla local, sin WebGPU disponible]\n\n**Despachador**: Desplegar Brigada R-22 al norte, acceso Los Copihues\n\n**IA**: ✅ Comando ejecutado: desplegar_recurso\n\n- Recurso: R-22\n- Dirección: norte\n- ETA: 4 min\n\n[respuesta de plantilla local, sin WebGPU disponible]\n\n"
+    }
+  },
+  "11_chatExportar_csv": {
+    "ok": true,
+    "ms": 0.81,
+    "resultado": {
+      "formato": "csv",
+      "nombreArchivo": "estadisticas_1792621940337.csv",
+      "tamanoBytes": 203,
+      "contenido": "minutos,hectareas,ros\r\n0,0,6\r\n5,3.5,6.15\r\n10,7,6.3\r\n15,10.5,6.45\r\n20,14,6.6\r\n25,17.5,6.75\r\n30,21,6.9\r\n35,24.5,7.05\r\n40,28,7.2\r\n45,31.499999999999996,7.35\r\n50,35,7.5\r\n55,38.5,7.65\r\n60,42,7.8\r\n65,45.5,7.95"
+    }
+  },
+  "12_chatExportar_kmz": {
+    "ok": true,
+    "ms": 0.89,
+    "resultado": {
+      "formato": "kmz",
+      "nombreArchivo": "perimetro_1792621940338.kmz",
+      "tamanoBytes": 698
+    }
+  }
+}

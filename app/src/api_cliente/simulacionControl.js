@@ -12,5 +12,5 @@ export async function simulacionControl({ accion } = {}) {
   else if (accion === 'reanudar') estado.pausado = false
   else if (accion === 'reiniciar') reiniciarEstado()
 
-  return { accion, pausado: estado.pausado, tiempoMin: estado.tiempoMin }
+  return { accion, pausado: estado.pausado, minutos: estado.minutos }
 }

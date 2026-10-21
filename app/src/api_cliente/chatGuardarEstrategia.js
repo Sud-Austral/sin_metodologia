@@ -7,9 +7,9 @@ import { estado } from './simEstado.js'
 import { guardarEstrategia } from '../db/indexeddb.js'
 
 export async function chatGuardarEstrategia({ nombre } = {}) {
-  const nombreFinal = nombre || `Plan ${estado.modelo} T=${estado.tiempoMin}`
+  const nombreFinal = nombre || `Plan ${estado.modelo} T=${estado.minutos}`
   const snapshot = {
-    tiempoMin: estado.tiempoMin,
+    minutos: estado.minutos,
     hectareas: estado.hectareas,
     ros: estado.ros,
     recursos: estado.recursos.map((r) => ({ id: r.id, estado: r.estado, destino: r.destino || null })),

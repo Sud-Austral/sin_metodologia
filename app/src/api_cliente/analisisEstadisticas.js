@@ -7,7 +7,7 @@ export function analisisEstadisticas() {
     serieROS: estado.historialROS,
     serieHectareas: estado.historialHectareas,
     actual: {
-      minutos: estado.tiempoMin,
+      minutos: estado.minutos,
       hectareas: estado.hectareas,
       ros: estado.ros,
       alturaLlama: estado.alturaLlama,
