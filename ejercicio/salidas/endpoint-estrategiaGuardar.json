@@ -10,7 +10,7 @@
       "ok": true,
       "status": 200,
       "data": {
-        "estrategia_id": "a6770375-cf6d-4b0f-8617-3e2a259380ac",
+        "estrategia_id": "90038626-4032-4f6c-acd6-1d2dace1fdcc",
         "nombre": "Plan Brigada+Retardante Los Lagos T=60",
         "turnos": 2,
         "archivo": "analisis_ia_2026-10-22.pdf",
@@ -19,7 +19,7 @@
           {
             "id": "R-22",
             "estado": "EN TRÁNSITO",
-            "eta_min": 4
+            "eta_min": 9
           }
         ]
       }

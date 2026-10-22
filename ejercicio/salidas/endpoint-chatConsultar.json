@@ -11,17 +11,17 @@
       "status": 200,
       "data": {
         "respuesta": "El ROS (Rate of Spread) actual es **9.8 m/min**.\n\nEl frente avanza 588 metros cada hora. A esta velocidad, llega a Escuela Pucatrihue (~755 m) en aproximadamente 77 min.\n\nFactores:\n- Viento 22 km/h desde 180° (a favor)\n- Humedad combustible 9% (muy baja)\n- Modelo K1 (Pastizal bajo)\n- Altura de llama 2.0 m, 2.3 ha quemadas en 60 min\n\nRecomendación: Acelerar despliegue al norte.",
-        "timestamp": "2026-10-22T09:51:30.637Z",
+        "timestamp": "2026-10-22T10:03:44.209Z",
         "modelo": "plantillas-deterministas",
         "tokens_utilizados": 86,
-        "latencia_s": 0.01,
+        "latencia_s": 0.011,
         "fuente": "plantillas",
         "comando": {
           "accion": "lectura_ros",
           "parametros": {},
           "texto_original": "¿Cuál es el ROS actual?"
         },
-        "conversacion_id": "4b2026d1-7316-4c57-8e6e-0dd162de3588",
+        "conversacion_id": "df667bfd-f20d-4c10-901e-208dcf463a5d",
         "resultado": null
       }
     }

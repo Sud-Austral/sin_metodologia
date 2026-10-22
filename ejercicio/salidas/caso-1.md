@@ -1,6 +1,6 @@
 # Caso 1: Lectura Simple
 
-Generado: 2026-10-22T09:51:30.234Z · ejecutado con `node scripts/casos_de_uso.mjs` contra `src/api/cliente.js` (proveedor: plantillas deterministas, sin navegador).
+Generado: 2026-10-22T10:03:43.794Z · ejecutado con `node scripts/casos_de_uso.mjs` contra `src/api/cliente.js` (proveedor: plantillas deterministas, sin navegador).
 
 Estado previo: T+120 min, 8.25 ha, ROS 9.64 m/min, viento 22 km/h desde 180°, humedad 9 %.
 

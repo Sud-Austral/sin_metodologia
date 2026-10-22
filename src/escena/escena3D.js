@@ -92,6 +92,8 @@ export class Escena3D {
     if (!this.activo) return
     requestAnimationFrame(() => this.animar())
     this.frame++
+    // Modo ahorro: mientras la IA genera en la GPU, renderizar 1 de cada 6 frames.
+    if (this.ahorroGPU && this.frame % 6 !== 0) return
     const dt = Math.min(0.1, this.reloj.getDelta())
     if (this.frame % TICK_INTERVAL === 0) this.onTickRequest?.()
     if (this.fuego) this.fuego.actualizar(dt)

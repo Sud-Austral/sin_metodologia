@@ -36,8 +36,8 @@ export default function App() {
   const [aviso, setAviso] = useState(null)
   const [chatVisible, setChatVisible] = useState(true)
   const proveedorRef = useRef(null)
-  const metaRef = useRef({ ia, demInfo, mensajes })
-  metaRef.current = { ia, demInfo, mensajes }
+  const metaRef = useRef({ ia, demInfo, mensajes, meteoInfo })
+  metaRef.current = { ia, demInfo, mensajes, meteoInfo }
 
   const refrescar = useCallback(() => {
     const est = estRef.current; if (!est) return
@@ -70,12 +70,15 @@ export default function App() {
       const radioKm = 240 * 13 / 2000
       const [dem, ciudad, meteo] = await Promise.all([
         cargarDEM(lat, lng, radioKm),
-        Promise.race([cargarCiudad(lat, lng, radioKm), new Promise((r) => setTimeout(() => r(null), 25000))]),
-        cargarMeteo(lat, lng, fecha, 3).then((m) => ({ serie: m, fuente: 'open-meteo' })).catch((e) => ({ serie: meteoSintetica(72), fuente: `sintetica (${e.message})` })),
+        Promise.race([cargarCiudad(lat, lng, radioKm), new Promise((r) => setTimeout(() => r(null), 40000))]),
+        cargarMeteo(lat, lng, fecha, 3).then((m) => ({ serie: m, fuente: m.aviso ? `open-meteo (${m.aviso})` : 'open-meteo' })).catch((e) => ({ serie: meteoSintetica(72), fuente: `sintetica (${e.message})` })),
       ])
+      console.log('[dem] ' + JSON.stringify({ fuente: dem.fuente, ms: dem.ms, tiles: dem.tiles, error: dem.error, resolucionOrigen_m: dem.resolucionOrigen_m }))
+      console.log('[osm] ' + JSON.stringify({ fuente: ciudad?.fuente, error: ciudad?.error, edificios: ciudad?.edificios?.length }))
+      console.log('[meteo] ' + JSON.stringify({ fuente: meteo.fuente, horas: meteo.serie.length }))
       setDemInfo({ fuente: dem.fuente, ms: dem.ms, tiles: dem.tiles, aviso: dem.aviso })
       if (dem.aviso) notificar(`⚠️ ${dem.aviso}`)
-      const ciudadFinal = ciudad || { ...ciudadSintetica(lat, lng), error: 'Overpass timeout 25 s' }
+      const ciudadFinal = ciudad || { ...ciudadSintetica(lat, lng), error: 'Overpass timeout 40 s' }
       setCarga({ fase: 'Construyendo escena…', error: null })
       const id = slug(nombre)
       const est = sim.crearSimulacion({ id, nombre, lat, lng, fecha, hora_inicio, dem: dem.dem, fuente_dem: dem.fuente, ciudad: ciudadFinal, meteo: meteo.serie })
@@ -131,7 +134,7 @@ export default function App() {
     const tm = setInterval(() => {
       const est = estRef.current; if (!est || !escenaRef.current) return
       const { ia: iaM, demInfo: demM, mensajes: msM } = metaRef.current
-      const m = { t: Date.now(), fps: +(escenaRef.current.fps || 0).toFixed(1), ms_tick_worker: +(motorRef.current?.msPromedio() || 0).toFixed(2), ticks: motorRef.current?.ticks || 0, tiempo_min: est.grid.tiempo_min, hectareas: +est.grid.stats.hectareas.toFixed(2), webgpu: iaM.webgpu, gpu: iaM.gpu, ia_estado: iaM.estado, dem: demM.fuente, dem_ms: demM.ms, osm: est.ciudad?.fuente, conversacion_id: est.conversacion_id, mensajes: msM.length }
+      const m = { t: Date.now(), fps: +(escenaRef.current.fps || 0).toFixed(1), ms_tick_worker: +(motorRef.current?.msPromedio() || 0).toFixed(2), ticks: motorRef.current?.ticks || 0, tiempo_min: est.grid.tiempo_min, hectareas: +est.grid.stats.hectareas.toFixed(2), webgpu: iaM.webgpu, gpu: iaM.gpu, ia_estado: iaM.estado, dem: demM.fuente, dem_ms: demM.ms, dem_tiles: demM.tiles ?? null, osm: est.ciudad?.fuente, osm_error: est.ciudad?.error ?? null, osm_edificios: est.ciudad?.edificios?.length ?? 0, meteo: metaRef.current.meteoInfo?.fuente ?? null, meteo_horas: metaRef.current.meteoInfo?.horas ?? null, conversacion_id: est.conversacion_id, mensajes: msM.length, grid: `${est.grid.ancho}x${est.grid.alto}` }
       window.__metricas = m
       console.log('[metricas] ' + JSON.stringify(m))
     }, 2000)
@@ -161,6 +164,7 @@ export default function App() {
     const est = estRef.current; if (!est) return
     setMensajes((m) => [...m, { rol: 'user', contenido: pregunta }])
     setCargando(true)
+    if (escenaRef.current) escenaRef.current.ahorroGPU = api.getProveedorIA().listo?.() === true
     try {
       const r = await api.chatConsultar({ pregunta, simulacion_id: est.id })
       if (!r.ok) setMensajes((m) => [...m, { rol: 'assistant', contenido: `❌ Error: ${r.detail}`, error: true }])
@@ -168,7 +172,7 @@ export default function App() {
       escenaRef.current?.actualizarGrid(est); refrescar(); refrescarListas()
     } catch (e) {
       setMensajes((m) => [...m, { rol: 'assistant', contenido: `❌ Error: ${e.message}`, error: true }])
-    } finally { setCargando(false) }
+    } finally { setCargando(false); if (escenaRef.current) escenaRef.current.ahorroGPU = false }
   }
 
   const acciones = {

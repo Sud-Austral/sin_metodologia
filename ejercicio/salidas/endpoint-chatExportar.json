@@ -3,7 +3,7 @@
   "funcion": "chatExportar",
   "valida": {
     "entrada": {
-      "conversacion_id": "4b2026d1-7316-4c57-8e6e-0dd162de3588",
+      "conversacion_id": "df667bfd-f20d-4c10-901e-208dcf463a5d",
       "formato": "markdown",
       "simulacion_id": "sim-endpoints"
     },
@@ -16,7 +16,7 @@
         "mime": "text/markdown",
         "bytes": 927,
         "mensajes": 2,
-        "contenido": "# Conversación IA — Endpoints\n\n- Conversación: 4b2026d1-7316-4c57-8e6e-0dd162de3588\n- Fecha: 2026-10-22T09:51:30.629Z\n- Mensajes: 2\n\n## Estado de la simulación\n\n| Métrica | Valor |\n|---|---|\n| Tiempo | 60 min |\n| Superficie | 2.3 ha |\n| ROS cabeza | 9.8 m/min |\n| Altura llama | 2 m |\n| Viento | 22 km/h desde 180° |\n| Humedad combustible | 9 % |\n| Modelo | K1 |\n\n## Mensajes\n\n### 👤 Despachador — 2026-10-22T09:51:30.633Z\n\n¿Cuál es el ROS actual?\n\n> Comando: `lectura_ros` {}\n\n### 🤖 IA — 2026-10-22T09:51:30.637Z (86 tokens)\n\nEl ROS (Rate of Spread) actual es **9.8 m/min**.\n\nEl frente avanza 588 metros cada hora. A esta velocidad, llega a Escuela Pucatrihue (~755 m) en aproximadamente 77 min.\n\nFactores:\n- Viento 22 km/h desde 180° (a favor)\n- Humedad combustible 9% (muy baja)\n- Modelo K1 (Pastizal bajo)\n- Altura de llama 2.0 m, 2.3 ha quemadas en 60 min\n\nRecomendación: Acelerar despliegue al norte.\n"
+        "contenido": "# Conversación IA — Endpoints\n\n- Conversación: df667bfd-f20d-4c10-901e-208dcf463a5d\n- Fecha: 2026-10-22T10:03:44.199Z\n- Mensajes: 2\n\n## Estado de la simulación\n\n| Métrica | Valor |\n|---|---|\n| Tiempo | 60 min |\n| Superficie | 2.3 ha |\n| ROS cabeza | 9.8 m/min |\n| Altura llama | 2 m |\n| Viento | 22 km/h desde 180° |\n| Humedad combustible | 9 % |\n| Modelo | K1 |\n\n## Mensajes\n\n### 👤 Despachador — 2026-10-22T10:03:44.204Z\n\n¿Cuál es el ROS actual?\n\n> Comando: `lectura_ros` {}\n\n### 🤖 IA — 2026-10-22T10:03:44.209Z (86 tokens)\n\nEl ROS (Rate of Spread) actual es **9.8 m/min**.\n\nEl frente avanza 588 metros cada hora. A esta velocidad, llega a Escuela Pucatrihue (~755 m) en aproximadamente 77 min.\n\nFactores:\n- Viento 22 km/h desde 180° (a favor)\n- Humedad combustible 9% (muy baja)\n- Modelo K1 (Pastizal bajo)\n- Altura de llama 2.0 m, 2.3 ha quemadas en 60 min\n\nRecomendación: Acelerar despliegue al norte.\n"
       }
     }
   },

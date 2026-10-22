@@ -71,9 +71,9 @@
               "nombre": "Brigada R-22",
               "tipo": "brigada",
               "estado": "EN TRÁNSITO",
-              "eta_min": 4,
-              "lat": -41.432,
-              "lng": -72.712
+              "eta_min": 9,
+              "lat": -41.46,
+              "lng": -72.73
             },
             {
               "id": "R-15",
@@ -81,8 +81,8 @@
               "tipo": "brigada",
               "estado": "DISPONIBLE",
               "eta_min": null,
-              "lat": -41.432,
-              "lng": -72.712
+              "lat": -41.46,
+              "lng": -72.73
             },
             {
               "id": "H-01",
@@ -90,8 +90,8 @@
               "tipo": "helicoptero",
               "estado": "DISPONIBLE",
               "eta_min": null,
-              "lat": -41.432,
-              "lng": -72.712
+              "lat": -41.46,
+              "lng": -72.73
             },
             {
               "id": "E-5",
@@ -99,8 +99,8 @@
               "tipo": "excavadora",
               "estado": "DISPONIBLE",
               "eta_min": null,
-              "lat": -41.432,
-              "lng": -72.712
+              "lat": -41.46,
+              "lng": -72.73
             },
             {
               "id": "C-1",
@@ -108,8 +108,8 @@
               "tipo": "cisterna",
               "estado": "DISPONIBLE",
               "eta_min": null,
-              "lat": -41.432,
-              "lng": -72.712
+              "lat": -41.46,
+              "lng": -72.73
             },
             {
               "id": "M-1",
@@ -117,11 +117,11 @@
               "tipo": "motobomba",
               "estado": "DISPONIBLE",
               "eta_min": null,
-              "lat": -41.432,
-              "lng": -72.712
+              "lat": -41.46,
+              "lng": -72.73
             }
           ],
-          "recursos_markdown": "- Brigada R-22 (R-22): EN TRÁNSITO, ETA 4 min — Línea manual 200 m / 45 min\n- Brigada R-15 (R-15): DISPONIBLE — Línea manual 200 m / 45 min\n- Helicóptero H-01 (H-01): DISPONIBLE — Bambi 1.200 L retardante\n- Excavadora E-5 (E-5): DISPONIBLE — Línea mecanizada 15 m ancho\n- Camión cisterna C-1 (C-1): DISPONIBLE — 5.000 L agua + gel\n- Motobombas (3 u.) (M-1): DISPONIBLE — 3 × 400 L/min",
+          "recursos_markdown": "- Brigada R-22 (R-22): EN TRÁNSITO, ETA 9 min — Línea manual 200 m / 45 min\n- Brigada R-15 (R-15): DISPONIBLE — Línea manual 200 m / 45 min\n- Helicóptero H-01 (H-01): DISPONIBLE — Bambi 1.200 L retardante\n- Excavadora E-5 (E-5): DISPONIBLE — Línea mecanizada 15 m ancho\n- Camión cisterna C-1 (C-1): DISPONIBLE — 5.000 L agua + gel\n- Motobombas (3 u.) (M-1): DISPONIBLE — 3 × 400 L/min",
           "amenazadas_markdown": "- Escuela Pucatrihue (school): 755 m\n- Posta rural (hospital): 835 m\n- Cuartel bomberos (fire_station): 1107 m",
           "acciones": 4,
           "grid": "240×240",
@@ -327,32 +327,32 @@
           {
             "t": 60,
             "tipo": "desplegar",
-            "detalle": "Brigada R-22 → -41.4100, -72.7000 (ETA 4 min)",
-            "timestamp": "2026-10-22T09:51:30.638Z",
+            "detalle": "Brigada R-22 → -41.4100, -72.7000 (ETA 9 min)",
+            "timestamp": "2026-10-22T10:03:44.209Z",
             "recurso_id": "R-22",
             "destino": {
               "lat": -41.41,
               "lng": -72.7
             },
-            "eta_min": 4
+            "eta_min": 9
           },
           {
             "t": 60,
             "tipo": "retardante",
             "detalle": "Phos-Chek 1200 L, radio 400 m → 2969 celdas, ROS -33 % por 240 min",
-            "timestamp": "2026-10-22T09:51:30.640Z"
+            "timestamp": "2026-10-22T10:03:44.212Z"
           },
           {
             "t": 60,
             "tipo": "control",
             "detalle": "pausar",
-            "timestamp": "2026-10-22T09:51:30.641Z"
+            "timestamp": "2026-10-22T10:03:44.212Z"
           },
           {
             "t": 60,
             "tipo": "control",
             "detalle": "reanudar",
-            "timestamp": "2026-10-22T09:51:30.641Z"
+            "timestamp": "2026-10-22T10:03:44.212Z"
           }
         ],
         "eventos": [],

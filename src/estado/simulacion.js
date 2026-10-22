@@ -23,7 +23,7 @@ export function crearSimulacion(op = {}) {
   const lat = op.lat ?? -41.42, lng = op.lng ?? -72.70
   const ancho = op.ancho ?? 240, alto = op.alto ?? 240, celda = op.celda ?? 13
   const grid = initCA(op.georaster ?? null, lat, lng, ancho, alto, celda, op.dem ?? null, { semilla: op.semilla ?? 3, modeloUniforme: op.modeloUniforme })
-  const base = { lat: lat - 0.012, lng: lng - 0.012 } // base de recursos a ~1.5 km al SO
+  const base = { lat: lat - 0.04, lng: lng - 0.03 } // base de recursos a ~5 km al SO (ETA brigada ~8–11 min)
   const recursos = (op.recursos ?? flotaDefecto()).map((r) => ({ ...r, lat: base.lat, lng: base.lng, destino: null, eta_min: null, mision: null }))
   const est = {
     id: op.id ?? uuid(),
@@ -34,7 +34,7 @@ export function crearSimulacion(op = {}) {
     viento_kmh: op.viento_kmh ?? 22, viento_dir: op.viento_dir ?? 180, humedad: op.humedad ?? 9,
     temp: op.temp ?? 28, hr: op.hr ?? 25, precipitacion: 0,
     usarMeteo: !!op.meteo, meteo: op.meteo ?? null, aceleracionMeteo: 60,
-    pausado: false, dt: op.dt ?? 5, exageracion: 1.5,
+    pausado: false, dt: op.dt ?? 5, exageracion: 1.5, intervaloTickMs: op.intervaloTickMs ?? 1000,
     recursos,
     ciudad: op.ciudad ?? ciudadSintetica(lat, lng),
     historial: [], acciones: [], retardantes: [], estrategias: [], eventos: [],

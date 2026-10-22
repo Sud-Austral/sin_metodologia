@@ -176,7 +176,7 @@ export async function chatConsultar({ pregunta, simulacion_id, grid_ca = null, e
         if (ej2?.texto) respuesta += `\n\n---\n${ej2.texto}`
       } else if (ejecucion?.texto && !/✅/.test(respuesta)) respuesta += `\n\n---\n${ejecucion.texto}`
     } catch (ex) {
-      respuesta = `⚠️ IA no respondió (${ex.message}). Respuesta de respaldo:\n\n` + (ejecucion?.texto || pl.respuestaGenerica(est, pregunta, intent))
+      respuesta = `⚠️ IA no respondió (${ex.message}). Respuesta de respaldo:\n\n` + (ejecucion?.texto || plantillaParaConsulta(est, pregunta, intent))
       modelo = 'plantillas (fallback por error IA)'; fuente = 'fallback'
     }
   } else {

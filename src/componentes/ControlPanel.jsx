@@ -35,6 +35,7 @@ function TabFuego({ est, stats, acciones, modoClick, setModoClick }) {
       <Fila label={`Ajuste ROS ×${est.params.ajusteROS}`}><input type="range" min="0.2" max="2" step="0.1" value={est.params.ajusteROS} onChange={(e) => { est.params.ajusteROS = +e.target.value; rerender((x) => x + 1) }} /></Fila>
       <Fila label="Pavesas (focos secundarios)"><input type="checkbox" checked={!!est.params.pavesas} onChange={(e) => { est.params.pavesas = e.target.checked; rerender((x) => x + 1) }} /></Fila>
       <Fila label={`dt por tick: ${est.dt} min`}><input type="range" min="1" max="15" value={est.dt} onChange={(e) => set('dt', +e.target.value)} /></Fila>
+      <Fila label={`Velocidad: 1 tick cada ${(est.intervaloTickMs / 1000).toFixed(2)} s real (${Math.round(est.dt * 1000 / est.intervaloTickMs * 60)}× tiempo real)`}><input type="range" min="100" max="5000" step="100" value={est.intervaloTickMs} onChange={(e) => set('intervaloTickMs', +e.target.value)} /></Fila>
       <div className="botones">
         <button className="btn" onClick={() => acciones.control(est.pausado ? 'reanudar' : 'pausar')}>{est.pausado ? '▶️ Reanudar' : '⏸️ Pausar'}</button>
         <button className="btn" onClick={() => acciones.control('reiniciar')}>🔄 Reiniciar</button>

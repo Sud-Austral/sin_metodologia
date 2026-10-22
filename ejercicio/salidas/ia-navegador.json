@@ -1,0 +1,64 @@
+{
+  "url": "http://localhost:4173/sin_metodologia/",
+  "fecha": "2026-10-22T10:09:19.754Z",
+  "webgpu": true,
+  "gpu": "intel gen-9",
+  "carga": {
+    "estado": "listo",
+    "segundos": 49.9,
+    "detalle": ""
+  },
+  "modelo": "Llama-3.2-1B-Instruct-q4f16_1-MLC",
+  "cache_mb": 676.3,
+  "preguntas": [
+    {
+      "pregunta": "¿Cuál es el ROS actual?",
+      "ok": true,
+      "modelo": "Llama-3.2-1B-Instruct-q4f16_1-MLC",
+      "fuente": "webllm",
+      "latencia_s": 40.56,
+      "tokens": 61,
+      "comando": null,
+      "respuesta": "No tengo información sobre el ROS (velocidad frontal) actual del incidente. El ROS es una medida que se puede medir en el campo, pero en este caso, no tengo acceso a información detallada sobre el sistema de seguimiento y monitoreo del incendio forestal."
+    },
+    {
+      "pregunta": "Desplegar Brigada R-22 al norte",
+      "ok": true,
+      "modelo": "Llama-3.2-1B-Instruct-q4f16_1-MLC",
+      "fuente": "webllm",
+      "latencia_s": 69.47,
+      "tokens": 91,
+      "comando": "desplegar_recurso",
+      "respuesta": "Desplegar Brigada R-22 al norte.\n\n* Destino: -41.4051, -72.6947\n* Ruta: 6.8 km en línea recta\n* ETA: 10 minutos\n* Estado: EN TRÁNSITO\n* Misión: Línea manual 200 m al llegar\n\nNota: La ruta se considera en el eje norte de la zona afectada.\n\n---\n✅ Comandos ejecutados:\n\n1. Brigada R-22:\n   - Destino: -41.4051, -72.6947\n   - Ruta: 6.8 km en línea recta [mostrada en mapa]\n   - ETA: 10 minutos\n   - Estado: EN TRÁNSITO\n   - Misión: línea manual 200 m al llegar\n\n2. Helicóptero H-01:\n   - Destino: -41.4051, -72.6947\n   - Ruta: 6.8 km en línea recta [mostrada en mapa]\n   - ETA: 3 minutos\n   - Estado: EN TRÁNSITO\n   - Misión: Retardante Phos-Chek (1.200 L), radio 800 m del frente\n   - Duración: 4 horas · Efecto esperado: ROS ↓ 33 %\n\nImpacto: en 3 min el grid CA mostrará la línea/zona tratada."
+    },
+    {
+      "pregunta": "¿Brigada norte o este?",
+      "ok": true,
+      "modelo": "Llama-3.2-1B-Instruct-q4f16_1-MLC",
+      "fuente": "webllm",
+      "latencia_s": 62.9,
+      "tokens": 110,
+      "comando": null,
+      "respuesta": "Lo siento, no tengo información sobre \"Brigada norte\" en este incidente. La respuesta correcta es:\n\n* Destino: -41.42, -72.7\n* Ruta: 6.8 km en línea recta\n* ETA: 10 minutos\n* Estado: NUEVA ZALAHUARAN\n* Misión: Línea manual 200 m al llegar\n\nNota: La Brigada norte se considera en una zona diferente a la Brigada R-22."
+    }
+  ],
+  "recursos": [
+    {
+      "id": "R-22",
+      "estado": "EN SITIO",
+      "eta": 0
+    },
+    {
+      "id": "H-01",
+      "estado": "EN SITIO",
+      "eta": 0
+    }
+  ],
+  "ok": true,
+  "consola": [
+    "[warning] Overpass falló en todos los espejos, usando ciudad sintética: https://overpass-api.de/api/interpreter: timeout 12s | https://overpass.kumi.systems/api/interpreter: timeout 12s | https://overpass.private.coffee/api/interpreter: timeout 12s",
+    "[log] [dem] {\"fuente\":\"terrarium\",\"ms\":645.7000000476837,\"tiles\":2,\"resolucionOrigen_m\":28.363636363636363}",
+    "[log] [osm] {\"fuente\":\"sintetico\",\"error\":\"https://overpass-api.de/api/interpreter: timeout 12s | https://overpass.kumi.systems/api/interpreter: timeout 12s | https://overpass.private.coffee/api/interpreter: timeout 12s\",\"edificios\":48}",
+    "[log] [meteo] {\"fuente\":\"open-meteo\",\"horas\":96}"
+  ]
+}

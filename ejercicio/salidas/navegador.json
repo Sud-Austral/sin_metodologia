@@ -1,0 +1,155 @@
+{
+  "url": "http://localhost:4173/sin_metodologia/",
+  "fecha": "2026-10-22T10:03:45.135Z",
+  "pasos": [
+    {
+      "n": "carga_y_primeros_ticks",
+      "segundos": 42.4,
+      "t": 1792663467011,
+      "fps": 142.7,
+      "ms_tick_worker": 6.27,
+      "ticks": 6,
+      "tiempo_min": 30,
+      "hectareas": 0.51,
+      "webgpu": true,
+      "gpu": "intel gen-9",
+      "ia_estado": "inactivo",
+      "dem": "terrarium",
+      "dem_ms": 624.8000000119209,
+      "dem_tiles": 2,
+      "osm": "sintetico",
+      "osm_error": "https://overpass-api.de/api/interpreter: timeout 12s | https://overpass.kumi.systems/api/interpreter: timeout 12s | https://overpass.private.coffee/api/interpreter: timeout 12s",
+      "osm_edificios": 48,
+      "meteo": "open-meteo",
+      "meteo_horas": 96,
+      "conversacion_id": null,
+      "mensajes": 0,
+      "grid": "240x240"
+    },
+    {
+      "n": "medicion",
+      "fps": 140.3,
+      "ms_tick_worker": 3.14,
+      "ticks": 15,
+      "dem": {
+        "fuente": "terrarium",
+        "ms": 624.8000000119209,
+        "tiles": 2
+      },
+      "osm": {
+        "fuente": "sintetico",
+        "error": "https://overpass-api.de/api/interpreter: timeout 12s | https://overpass.kumi.systems/api/interpreter: timeout 12s | https://overpass.private.coffee/api/interpreter: timeout 12s",
+        "edificios": 48
+      },
+      "meteo": {
+        "fuente": "open-meteo",
+        "horas": 96
+      },
+      "webgpu": {
+        "disponible": true,
+        "gpu": "intel gen-9"
+      },
+      "webgl": "ANGLE (Intel, Intel(R) UHD Graphics (0x00009BC4) Direct3D11 vs_5_0 ps_5_0, D3D11)"
+    },
+    {
+      "n": "chat_pregunta_simple",
+      "latencia_s": 0.05,
+      "mensajes_dom": 2,
+      "respuesta": "El ROS (Rate of Spread) actual es 8.1 m/min.\n\nEl frente avanza 484 metros cada hora. A esta velocidad, llega a Escuela Pucatrihue (~860 m) en aproximadamente 2.4 h.\n\nFactores:\n\nViento 5.1 km/h desde 2"
+    },
+    {
+      "n": "chat_comando_desplegar",
+      "latencia_s": 0.06,
+      "recursos": [
+        {
+          "id": "R-22",
+          "estado": "EN TRÁNSITO",
+          "eta": 4
+        },
+        {
+          "id": "H-01",
+          "estado": "EN SITIO",
+          "eta": 0
+        }
+      ],
+      "escena": "6 sprites, rutas visibles: 1"
+    },
+    {
+      "n": "pestanas",
+      "tabs": [
+        "FUEGO:true",
+        "ESCENARIO:true",
+        "RECURSOS:true",
+        "PERIMETRO:true",
+        "ANÁLISIS:true",
+        "REPORTES:true"
+      ],
+      "errores_nuevos": 0
+    },
+    {
+      "n": "exportar",
+      "md": {
+        "ok": true,
+        "archivo": "conversacion_Los_Lagos_15_enero_2026-10-22.md",
+        "bytes": 1930,
+        "mensajes": 4
+      },
+      "kmz": {
+        "ok": true,
+        "archivo": "perimetro_Los_Lagos_15_enero_2026-10-22.kmz",
+        "bytes": 1397
+      }
+    },
+    {
+      "n": "persistencia_recarga",
+      "conversacion_antes": "03bd920a-142f-4ca4-9a5f-683c2c71dcae",
+      "conversacion_despues": "03bd920a-142f-4ca4-9a5f-683c2c71dcae",
+      "mensajes_antes": 4,
+      "mensajes_despues": 4,
+      "recupera": true,
+      "dem_tras_recarga": "cache",
+      "dem_ms_tras_recarga": 15.399999976158142
+    },
+    {
+      "n": "indexeddb",
+      "conversaciones": 1,
+      "mensajes": 4,
+      "indexedDB": true
+    }
+  ],
+  "webgpu": {
+    "disponible": true,
+    "gpu": "intel gen-9"
+  },
+  "webgl": "ANGLE (Intel, Intel(R) UHD Graphics (0x00009BC4) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+  "fps": 140.3,
+  "ms_tick_worker": 3.14,
+  "ticks": 15,
+  "dem": {
+    "fuente": "terrarium",
+    "ms": 624.8000000119209,
+    "tiles": 2
+  },
+  "osm": {
+    "fuente": "sintetico",
+    "error": "https://overpass-api.de/api/interpreter: timeout 12s | https://overpass.kumi.systems/api/interpreter: timeout 12s | https://overpass.private.coffee/api/interpreter: timeout 12s",
+    "edificios": 48
+  },
+  "meteo": {
+    "fuente": "open-meteo",
+    "horas": 96
+  },
+  "grid": "240x240",
+  "ok": true,
+  "errores_consola": [],
+  "consola_recortada": [
+    "[warning] Overpass falló en todos los espejos, usando ciudad sintética: https://overpass-api.de/api/interpreter: timeout 12s | https://overpass.kumi.systems/api/interpreter: timeout 12s | https://overpass.private.coffee/api/interpreter: timeout 12s",
+    "[log] [dem] {\"fuente\":\"terrarium\",\"ms\":624.8000000119209,\"tiles\":2,\"resolucionOrigen_m\":28.363636363636363}",
+    "[log] [osm] {\"fuente\":\"sintetico\",\"error\":\"https://overpass-api.de/api/interpreter: timeout 12s | https://overpass.kumi.systems/api/interpreter: timeout 12s | https://overpass.private.coffee/api/interpreter: timeout 12s\",\"edificios\":48}",
+    "[log] [meteo] {\"fuente\":\"open-meteo\",\"horas\":96}",
+    "[warning] Overpass falló en todos los espejos, usando ciudad sintética: https://overpass-api.de/api/interpreter: timeout 12s | https://overpass.kumi.systems/api/interpreter: timeout 12s | https://overpass.private.coffee/api/interpreter: timeout 12s",
+    "[log] [dem] {\"fuente\":\"cache\",\"ms\":15.399999976158142}",
+    "[log] [osm] {\"fuente\":\"sintetico\",\"error\":\"https://overpass-api.de/api/interpreter: timeout 12s | https://overpass.kumi.systems/api/interpreter: timeout 12s | https://overpass.private.coffee/api/interpreter: timeout 12s\",\"edificios\":48}",
+    "[log] [meteo] {\"fuente\":\"open-meteo\",\"horas\":96}"
+  ]
+}

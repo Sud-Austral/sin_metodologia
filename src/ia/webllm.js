@@ -1,7 +1,8 @@
 // Proveedor de IA en navegador: WebLLM (@mlc-ai/web-llm) sobre WebGPU.
 // Reemplaza a Ollama + Mistral-7B. Si no hay WebGPU → fallback a plantillas (nunca pantalla en blanco).
 export const MODELO_NAVEGADOR = 'Llama-3.2-1B-Instruct-q4f16_1-MLC'
-export const TIMEOUT_MS = 30000
+// 90 s: en GPU integrada (Intel UHD) el prefill de ~700 tokens de contexto tarda decenas de segundos.
+export const TIMEOUT_MS = 90000
 
 export async function detectarWebGPU() {
   if (typeof navigator === 'undefined' || !navigator.gpu) return { disponible: false, razon: 'navigator.gpu no existe (navegador sin WebGPU)' }
@@ -47,7 +48,7 @@ export function crearProveedorWebLLM({ modelo = MODELO_NAVEGADOR, onProgress = (
     const timer = setTimeout(() => ctrl.abort(), TIMEOUT_MS)
     try {
       const reply = await Promise.race([
-        engine.chat.completions.create({ messages: mensajes, temperature: 0.7, top_p: 0.9, max_tokens: 400 }),
+        engine.chat.completions.create({ messages: mensajes, temperature: 0.7, top_p: 0.9, max_tokens: 256 }),
         new Promise((_, rej) => ctrl.signal.addEventListener('abort', () => rej(new Error(`Timeout IA (>${TIMEOUT_MS / 1000}s)`)))),
       ])
       const texto = reply.choices[0].message.content

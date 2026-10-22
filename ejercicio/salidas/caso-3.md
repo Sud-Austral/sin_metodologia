@@ -1,6 +1,6 @@
 # Caso 3: Proyección Alternativa
 
-Generado: 2026-10-22T09:51:30.260Z · ejecutado con `node scripts/casos_de_uso.mjs` contra `src/api/cliente.js` (proveedor: plantillas deterministas, sin navegador).
+Generado: 2026-10-22T10:03:43.823Z · ejecutado con `node scripts/casos_de_uso.mjs` contra `src/api/cliente.js` (proveedor: plantillas deterministas, sin navegador).
 
 Estado previo: T+140 min, 10.8 ha, ROS 9.83 m/min, viento 22 km/h desde 180°, humedad 9 %.
 
@@ -33,7 +33,7 @@ Acción urgente:
   "status": 200,
   "modelo": "plantillas-deterministas",
   "tokens_utilizados": 107,
-  "latencia_s": 0.027,
+  "latencia_s": 0.034,
   "fuente": "plantillas",
   "comando": "proyectar",
   "resultado": {

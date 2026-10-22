@@ -47,8 +47,14 @@ export function crearMotorWorker(est, { onTick = () => {}, onError = () => {} } 
   }
   worker.onerror = (e) => { enVuelo = false; onError(e.message) }
 
+  let ultimoTickReal = 0
   function tick(dt = est.dt) {
     if (!listo || enVuelo || est.pausado) return false
+    // Ritmo: el loop pide tick cada 10 frames, pero se respeta un intervalo mínimo real
+    // (est.intervaloTickMs, por defecto 1000 ms → dt min simulados por segundo real).
+    const ahora = performance.now()
+    if (ahora - ultimoTickReal < (est.intervaloTickMs ?? 1000)) return false
+    ultimoTickReal = ahora
     aplicarMeteo(est)
     moverRecursos(est, dt)
     const g = est.grid

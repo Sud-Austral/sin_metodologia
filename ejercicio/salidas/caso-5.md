@@ -1,6 +1,6 @@
 # Caso 5: Guardado de Decisión
 
-Generado: 2026-10-22T09:51:30.298Z · ejecutado con `node scripts/casos_de_uso.mjs` contra `src/api/cliente.js` (proveedor: plantillas deterministas, sin navegador).
+Generado: 2026-10-22T10:03:43.865Z · ejecutado con `node scripts/casos_de_uso.mjs` contra `src/api/cliente.js` (proveedor: plantillas deterministas, sin navegador).
 
 Estado previo: T+160 min, 13.45 ha, ROS 9.77 m/min, viento 22 km/h desde 180°, humedad 9 %.
 
@@ -38,7 +38,7 @@ Descarga: [analisis_ia_2026-10-22.pdf]
   "fuente": "plantillas",
   "comando": "guardar_estrategia",
   "resultado": {
-    "estrategia_id": "6f930ae1-8f9e-4c2c-9017-42919b2ba2f7",
+    "estrategia_id": "e2e21b21-848b-4c0c-b666-9bf1aedb69e8",
     "nombre": "Plan brigada+helicoptero Los Lagos T=160",
     "turnos": 9,
     "archivo": "analisis_ia_2026-10-22.pdf",

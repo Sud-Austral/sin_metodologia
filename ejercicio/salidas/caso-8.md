@@ -1,6 +1,6 @@
 # Caso 8: Exportación Inteligente
 
-Generado: 2026-10-22T09:51:30.335Z · ejecutado con `node scripts/casos_de_uso.mjs` contra `src/api/cliente.js` (proveedor: plantillas deterministas, sin navegador).
+Generado: 2026-10-22T10:03:43.902Z · ejecutado con `node scripts/casos_de_uso.mjs` contra `src/api/cliente.js` (proveedor: plantillas deterministas, sin navegador).
 
 Estado previo: T+190 min, 17.98 ha, ROS 12.4 m/min, viento 22 km/h desde 180°, humedad 9 %.
 
@@ -33,7 +33,7 @@ Descarga: [Analisis_IA_Coigue1_2026-10-22.pdf]
   "status": 200,
   "modelo": "plantillas-deterministas",
   "tokens_utilizados": 98,
-  "latencia_s": 0.009,
+  "latencia_s": 0.008,
   "fuente": "plantillas",
   "comando": "exportar",
   "resultado": {

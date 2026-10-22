@@ -4,7 +4,9 @@ import { cacheGet, cacheSet } from './db.js'
 import { M_POR_GRADO_LAT } from '../motores/ca_propagacion.js'
 
 export const URL_OVERPASS = 'https://overpass-api.de/api/interpreter'
+export const ESPEJOS_OVERPASS = [URL_OVERPASS, 'https://overpass.kumi.systems/api/interpreter', 'https://overpass.private.coffee/api/interpreter']
 const TTL_MS = 7 * 24 * 3600 * 1000
+const TIMEOUT_ESPEJO_MS = 12000
 
 export function consultaOverpass(bounds) {
   return `[out:json][timeout:25][bbox:${bounds.sur},${bounds.oeste},${bounds.norte},${bounds.este}];
@@ -82,14 +84,20 @@ export async function cargarCiudad(lat, lng, radioKm, fetchImpl = globalThis.fet
   const clave = `osm:${lat.toFixed(3)}:${lng.toFixed(3)}:${radioKm}`
   const c = await cacheGet(clave).catch(() => null)
   if (c && Date.now() - c.fecha < TTL_MS) return { ...c.datos, fuente: 'cache' }
-  try {
-    const resp = await fetchImpl(URL_OVERPASS, { method: 'POST', body: 'data=' + encodeURIComponent(consultaOverpass(bounds)) })
-    if (!resp.ok) throw new Error(`Overpass HTTP ${resp.status}`)
-    const datos = procesar_osm(await resp.json())
-    await cacheSet(clave, { datos, fecha: Date.now() }).catch(() => {})
-    return { ...datos, fuente: 'overpass' }
-  } catch (e) {
-    console.warn('Overpass falló, usando ciudad sintética:', e.message)
-    return { ...ciudadSintetica(lat, lng), error: e.message }
+  const errores = []
+  for (const url of ESPEJOS_OVERPASS) {
+    const ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null
+    const timer = ctrl && setTimeout(() => ctrl.abort(), TIMEOUT_ESPEJO_MS)
+    try {
+      const resp = await fetchImpl(url, { method: 'POST', body: 'data=' + encodeURIComponent(consultaOverpass(bounds)), signal: ctrl?.signal })
+      if (!resp.ok) throw new Error(`HTTP ${resp.status}`)
+      const datos = procesar_osm(await resp.json())
+      await cacheSet(clave, { datos, fecha: Date.now() }).catch(() => {})
+      return { ...datos, fuente: 'overpass', espejo: url }
+    } catch (e) {
+      errores.push(`${url}: ${e.name === 'AbortError' ? `timeout ${TIMEOUT_ESPEJO_MS / 1000}s` : e.message}`)
+    } finally { if (timer) clearTimeout(timer) }
   }
+  console.warn('Overpass falló en todos los espejos, usando ciudad sintética:', errores.join(' | '))
+  return { ...ciudadSintetica(lat, lng), error: errores.join(' | ') }
 }

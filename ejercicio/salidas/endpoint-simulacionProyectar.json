@@ -89,8 +89,8 @@
               "tipo": "brigada",
               "estado": "DISPONIBLE",
               "eta_min": null,
-              "lat": -41.432,
-              "lng": -72.712
+              "lat": -41.46,
+              "lng": -72.73
             },
             {
               "id": "H-01",
@@ -98,8 +98,8 @@
               "tipo": "helicoptero",
               "estado": "DISPONIBLE",
               "eta_min": null,
-              "lat": -41.432,
-              "lng": -72.712
+              "lat": -41.46,
+              "lng": -72.73
             },
             {
               "id": "E-5",
@@ -107,8 +107,8 @@
               "tipo": "excavadora",
               "estado": "DISPONIBLE",
               "eta_min": null,
-              "lat": -41.432,
-              "lng": -72.712
+              "lat": -41.46,
+              "lng": -72.73
             },
             {
               "id": "C-1",
@@ -116,8 +116,8 @@
               "tipo": "cisterna",
               "estado": "DISPONIBLE",
               "eta_min": null,
-              "lat": -41.432,
-              "lng": -72.712
+              "lat": -41.46,
+              "lng": -72.73
             },
             {
               "id": "M-1",
@@ -125,8 +125,8 @@
               "tipo": "motobomba",
               "estado": "DISPONIBLE",
               "eta_min": null,
-              "lat": -41.432,
-              "lng": -72.712
+              "lat": -41.46,
+              "lng": -72.73
             }
           ],
           "recursos_markdown": "- Brigada R-22 (R-22): EN SITIO — Línea manual 200 m / 45 min\n- Brigada R-15 (R-15): DISPONIBLE — Línea manual 200 m / 45 min\n- Helicóptero H-01 (H-01): DISPONIBLE — Bambi 1.200 L retardante\n- Excavadora E-5 (E-5): DISPONIBLE — Línea mecanizada 15 m ancho\n- Camión cisterna C-1 (C-1): DISPONIBLE — 5.000 L agua + gel\n- Motobombas (3 u.) (M-1): DISPONIBLE — 3 × 400 L/min",
@@ -207,8 +207,8 @@
               "tipo": "brigada",
               "estado": "DISPONIBLE",
               "eta_min": null,
-              "lat": -41.432,
-              "lng": -72.712
+              "lat": -41.46,
+              "lng": -72.73
             },
             {
               "id": "H-01",
@@ -216,8 +216,8 @@
               "tipo": "helicoptero",
               "estado": "DISPONIBLE",
               "eta_min": null,
-              "lat": -41.432,
-              "lng": -72.712
+              "lat": -41.46,
+              "lng": -72.73
             },
             {
               "id": "E-5",
@@ -225,8 +225,8 @@
               "tipo": "excavadora",
               "estado": "DISPONIBLE",
               "eta_min": null,
-              "lat": -41.432,
-              "lng": -72.712
+              "lat": -41.46,
+              "lng": -72.73
             },
             {
               "id": "C-1",
@@ -234,8 +234,8 @@
               "tipo": "cisterna",
               "estado": "DISPONIBLE",
               "eta_min": null,
-              "lat": -41.432,
-              "lng": -72.712
+              "lat": -41.46,
+              "lng": -72.73
             },
             {
               "id": "M-1",
@@ -243,8 +243,8 @@
               "tipo": "motobomba",
               "estado": "DISPONIBLE",
               "eta_min": null,
-              "lat": -41.432,
-              "lng": -72.712
+              "lat": -41.46,
+              "lng": -72.73
             }
           ],
           "recursos_markdown": "- Brigada R-22 (R-22): EN SITIO — Línea manual 200 m / 45 min\n- Brigada R-15 (R-15): DISPONIBLE — Línea manual 200 m / 45 min\n- Helicóptero H-01 (H-01): DISPONIBLE — Bambi 1.200 L retardante\n- Excavadora E-5 (E-5): DISPONIBLE — Línea mecanizada 15 m ancho\n- Camión cisterna C-1 (C-1): DISPONIBLE — 5.000 L agua + gel\n- Motobombas (3 u.) (M-1): DISPONIBLE — 3 × 400 L/min",

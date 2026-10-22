@@ -1,6 +1,6 @@
 # Caso 4: Análisis Estratégico
 
-Generado: 2026-10-22T09:51:30.292Z · ejecutado con `node scripts/casos_de_uso.mjs` contra `src/api/cliente.js` (proveedor: plantillas deterministas, sin navegador).
+Generado: 2026-10-22T10:03:43.861Z · ejecutado con `node scripts/casos_de_uso.mjs` contra `src/api/cliente.js` (proveedor: plantillas deterministas, sin navegador).
 
 Estado previo: T+150 min, 12.2 ha, ROS 11.85 m/min, viento 22 km/h desde 180°, humedad 9 %.
 

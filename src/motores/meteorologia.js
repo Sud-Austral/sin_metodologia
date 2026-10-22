@@ -1,9 +1,12 @@
 // Meteorología Open-Meteo (desde el navegador) + FWI canadiense simplificado.
 const BASE = 'https://api.open-meteo.com/v1/forecast'
+const ARCHIVO = 'https://archive-api.open-meteo.com/v1/archive'
 
-export function urlOpenMeteo(lat, lon, fecha, dias = 3) {
+// Fechas con más de 7 días de antigüedad van al endpoint de archivo (el forecast devuelve 400).
+export function urlOpenMeteo(lat, lon, fecha, dias = 3, hoy = new Date().toISOString().slice(0, 10)) {
   const fin = sumarDias(fecha, dias)
-  return `${BASE}?latitude=${lat}&longitude=${lon}&start_date=${fecha}&end_date=${fin}` +
+  const antigua = fecha < sumarDias(hoy, -7)
+  return `${antigua ? ARCHIVO : BASE}?latitude=${lat}&longitude=${lon}&start_date=${fecha}&end_date=${fin}` +
     `&hourly=temperature_2m,relative_humidity_2m,precipitation,wind_speed_10m,wind_direction_10m` +
     `&wind_speed_unit=ms&timezone=America%2FSantiago`
 }
@@ -67,10 +70,19 @@ export function nivelPeligro(fwi) {
 }
 
 export async function cargarMeteo(lat, lon, fecha, dias = 3, fetchImpl = globalThis.fetch) {
-  const resp = await fetchImpl(urlOpenMeteo(lat, lon, fecha, dias))
-  if (!resp.ok) throw new Error(`Open-Meteo HTTP ${resp.status}`)
-  const data = await resp.json()
-  return procesarFWI(data)
+  const intentar = async (f) => {
+    const resp = await fetchImpl(urlOpenMeteo(lat, lon, f, dias))
+    if (!resp.ok) throw new Error(`Open-Meteo HTTP ${resp.status} para ${f}`)
+    return procesarFWI(await resp.json())
+  }
+  try { return await intentar(fecha) } catch (e) {
+    // Fecha fuera de rango (futuro lejano / sin archivo): usar pronóstico desde hoy.
+    const hoy = new Date().toISOString().slice(0, 10)
+    if (fecha === hoy) throw e
+    const serie = await intentar(hoy)
+    serie.aviso = `Sin datos para ${fecha} (${e.message}); usando pronóstico desde ${hoy}`
+    return serie
+  }
 }
 
 // Meteorología sintética de fallback (sin red): tarde seca de verano en Los Lagos.
