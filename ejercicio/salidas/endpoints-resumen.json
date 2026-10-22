@@ -1,0 +1,58 @@
+[
+  {
+    "funcion": "chatConsultar",
+    "contrato": "POST /api/v1/chat/consultar",
+    "valida_status": 200,
+    "invalida_status": 422,
+    "ok": true
+  },
+  {
+    "funcion": "despachoDesplegar",
+    "contrato": "POST /api/v1/despacho/desplegar",
+    "valida_status": 200,
+    "invalida_status": 422,
+    "ok": true
+  },
+  {
+    "funcion": "simulacionAplicarRetardante",
+    "contrato": "POST /api/v1/simulacion/aplicar-retardante",
+    "valida_status": 200,
+    "invalida_status": 422,
+    "ok": true
+  },
+  {
+    "funcion": "simulacionControl",
+    "contrato": "POST /api/v1/simulacion/control",
+    "valida_status": 200,
+    "invalida_status": 422,
+    "ok": true
+  },
+  {
+    "funcion": "chatExportar",
+    "contrato": "GET /api/v1/chat/exportar/{conversacion_id}?formato=",
+    "valida_status": 200,
+    "invalida_status": 404,
+    "ok": true
+  },
+  {
+    "funcion": "analisisEstadisticas",
+    "contrato": "GET /api/v1/analisis/estadisticas",
+    "valida_status": 200,
+    "invalida_status": 404,
+    "ok": true
+  },
+  {
+    "funcion": "estrategiaGuardar",
+    "contrato": "POST /api/v1/estrategia/guardar",
+    "valida_status": 200,
+    "invalida_status": 422,
+    "ok": true
+  },
+  {
+    "funcion": "simulacionProyectar",
+    "contrato": "POST /api/v1/simulacion/proyectar",
+    "valida_status": 200,
+    "invalida_status": 422,
+    "ok": true
+  }
+]

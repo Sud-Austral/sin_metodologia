@@ -1,0 +1,190 @@
+
+ RUN  v3.2.4 D:/GitHub/sin_metodologia
+
+ ❯ tests/motores.test.js (19 tests | 7 failed) 169ms
+   ✓ KITRAL > define 13 modelos K1–K13 con clase y ROS base decreciente de pasto a bosque 3ms
+   ✓ KITRAL > clasifica vegetación por percentiles p40/p72 y pendiente 23ms
+   × Rothermel > ROS crece con viento y decrece con humedad; se extingue sobre humedad de extinción 6ms
+     → expected 0 to be greater than 5.778080000000004
+   × Rothermel > pendiente a favor acelera y en contra frena 1ms
+     → expected 0 to be greater than 0
+   ✓ Rothermel > altura de llama es positiva y creciente con ROS 0ms
+   ✓ Rothermel > ROS direccional: cabeza > flanco > cola; excentricidad en [0,1) 0ms
+   ✓ Rothermel > interpola ROS entre dos modelos 0ms
+   ✓ Autómata celular > initCA crea grid 240×240 de 13 m con una celda ardiendo en el punto de ignición 22ms
+   ✓ Autómata celular > conversión celda↔latlng es inversa 1ms
+   × Autómata celular > el fuego crece con el tiempo y más rápido con viento 31ms
+     → expected 0.0169 to be greater than 2.5519
+   ✓ Autómata celular > con precipitación el fuego no se propaga 5ms
+   × Autómata celular > el fuego se propaga preferentemente a sotavento 5ms
+     → expected 0 to be greater than 0
+   ✓ Autómata celular > tick de 240×240 toma menos de 100 ms 33ms
+   × Autómata celular > frente y perímetro devuelven coordenadas lat/lng 3ms
+     → expected 0 to be greater than 0
+   × Autómata celular > retardante reduce el área quemada y una línea de control la detiene 25ms
+     → expected 0.0169 to be less than 0.0169
+   × Autómata celular > expande el grid cuando el fuego se acerca al borde 7ms
+     → expected 40 to be 80 // Object.is equality
+   ✓ Meteorología > FWI crece con viento y baja con HR; humedad fino empírica 0ms
+   ✓ Meteorología > procesa respuesta Open-Meteo (m/s → km/h) y construye URL 1ms
+   ✓ Meteorología > 1 minuto simulado = 1 hora meteorológica 1ms
+ ❯ tests/ia_api.test.js (16 tests | 2 failed) 151ms
+   ✓ Parseador de intenciones > detecta desplegar con recurso y dirección 3ms
+   ✓ Parseador de intenciones > detecta retardante con volumen, control, exportar, guardar, proyectar, plan 3ms
+   ✓ Parseador de intenciones > clasifica consultas y devuelve null para texto irrelevante 1ms
+   ✓ Parseador de intenciones > extrae recursos y volúmenes 0ms
+   ✓ Contexto dinámico > incluye las cifras del estado y recorta a 3000 caracteres 8ms
+   ✓ Endpoints de cliente (contrato HTTP) > chatConsultar valida entrada y responde con markdown + persistencia 31ms
+   ✓ Endpoints de cliente (contrato HTTP) > desplegar: valida y mueve el recurso; el comando por chat lo ejecuta 12ms
+   ✓ Endpoints de cliente (contrato HTTP) > aplicar-retardante valida y reduce ROS en celdas 6ms
+   ✓ Endpoints de cliente (contrato HTTP) > control: pausar detiene el avance, reanudar lo retoma, reiniciar vuelve a T=0 26ms
+   ✓ Endpoints de cliente (contrato HTTP) > exportar: markdown/json/csv/kmz/pdf y errores 404/422 27ms
+   ✓ Endpoints de cliente (contrato HTTP) > estadisticas devuelve series alineadas con el historial 3ms
+   × Endpoints de cliente (contrato HTTP) > estrategia guardar persiste snapshot y genera PDF; proyectar compara escenarios 19ms
+     → expected 0 to be greater than 0
+   ✓ Endpoints de cliente (contrato HTTP) > la conversación es recuperable tras "reabrir" (misma simulacion_id) 4ms
+   × Exportaciones > markdown, CSV, KML/KMZ, GeoJSON y PDF 5ms
+     → expected '<?xml version="1.0" encoding="UTF-8"?…' to contain '<Polygon>'
+   ✓ OSM y DEM (sin red) > procesa Overpass, detecta amenazas en buffer 500 m, ciudad sintética 1ms
+   ✓ OSM y DEM (sin red) > decodifica Terrarium y remuestrea 0ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 9 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/ia_api.test.js > Endpoints de cliente (contrato HTTP) > estrategia guardar persiste snapshot y genera PDF; proyectar compara escenarios
+AssertionError: expected 0 to be greater than 0
+ ❯ tests/ia_api.test.js:131:42
+    129|     const p = await api.simulacionProyectar({ simulacion_id: est.id, v…
+    130|     expect(p.ok).toBe(true)
+    131|     expect(p.data.proyectado.ros_cabeza).toBeGreaterThan(p.data.actual…
+       |                                          ^
+    132|     expect(est.grid.tiempo_min).toBe(30) // la proyección no altera el…
+    133|   })
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/9]⎯
+
+ FAIL  tests/ia_api.test.js > Exportaciones > markdown, CSV, KML/KMZ, GeoJSON y PDF
+AssertionError: expected '<?xml version="1.0" encoding="UTF-8"?…' to contain '<Polygon>'
+
+- Expected
++ Received
+
+- <Polygon>
++ <?xml version="1.0" encoding="UTF-8"?>
++ <kml xmlns="http://www.opengis.net/kml/2.2"><Document><name>Los Lagos 15 enero T+20</name>
++ <Style id="per"><LineStyle><color>ff0000ff</color><width>2</width></LineStyle><PolyStyle><color>550000ff</color></PolyStyle></Style>
++ <Style id="fr"><IconStyle><color>ff00a5ff</color><scale>0.6</scale></IconStyle></Style>
++ <Placemark><name>Brigada R-22 (DISPONIBLE)</name><Point><coordinates>-72.712,-41.432,0</coordinates></Point></Placemark>
++ <Placemark><name>Brigada R-15 (DISPONIBLE)</name><Point><coordinates>-72.712,-41.432,0</coordinates></Point></Placemark>
++ <Placemark><name>Helicóptero H-01 (DISPONIBLE)</name><Point><coordinates>-72.712,-41.432,0</coordinates></Point></Placemark>
++ <Placemark><name>Excavadora E-5 (DISPONIBLE)</name><Point><coordinates>-72.712,-41.432,0</coordinates></Point></Placemark>
++ <Placemark><name>Camión cisterna C-1 (DISPONIBLE)</name><Point><coordinates>-72.712,-41.432,0</coordinates></Point></Placemark>
++ <Placemark><name>Motobombas (3 u.) (DISPONIBLE)</name><Point><coordinates>-72.712,-41.432,0</coordinates></Point></Placemark>
++ </Document></kml>
+
+ ❯ tests/ia_api.test.js:150:28
+    148|     expect(estadisticasACSV(est.historial).split('\n').length).toBe(es…
+    149|     const snap = sim.snapshot(est)
+    150|     expect(gridAKML(snap)).toContain('<Polygon>')
+       |                            ^
+    151|     expect(gridAGeoJSON(snap).features.some((f) => f.properties.tipo =…
+    152|     const kmz = await gridAKMZ(snap)
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/9]⎯
+
+ FAIL  tests/motores.test.js > Rothermel > ROS crece con viento y decrece con humedad; se extingue sobre humedad de extinción
+AssertionError: expected 0 to be greater than 5.778080000000004
+ ❯ tests/motores.test.js:30:38
+     28| describe('Rothermel', () => {
+     29|   it('ROS crece con viento y decrece con humedad; se extingue sobre hu…
+     30|     expect(calcularROS(2, 30, 0, 9)).toBeGreaterThan(calcularROS(2, 0,…
+       |                                      ^
+     31|     expect(calcularROS(2, 20, 0, 5)).toBeGreaterThan(calcularROS(2, 20…
+     32|     expect(calcularROS(2, 20, 0, 15)).toBe(0)
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/9]⎯
+
+ FAIL  tests/motores.test.js > Rothermel > pendiente a favor acelera y en contra frena
+AssertionError: expected 0 to be greater than 0
+ ❯ tests/motores.test.js:37:40
+     35|   })
+     36|   it('pendiente a favor acelera y en contra frena', () => {
+     37|     expect(calcularROS(3, 10, 30, 10)).toBeGreaterThan(calcularROS(3, …
+       |                                        ^
+     38|     expect(calcularROS(3, 10, -30, 10)).toBeLessThan(calcularROS(3, 10…
+     39|   })
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/9]⎯
+
+ FAIL  tests/motores.test.js > Autómata celular > el fuego crece con el tiempo y más rápido con viento
+AssertionError: expected 0.0169 to be greater than 2.5519
+ ❯ tests/motores.test.js:76:37
+     74|     for (let k = 0; k < 12; k++) { a = tickCA(a, a.tiempo_min, 5, 180,…
+     75|     expect(calcularSuperficieHa(a)).toBeGreaterThan(0.1)
+     76|     expect(calcularSuperficieHa(b)).toBeGreaterThan(calcularSuperficie…
+       |                                     ^
+     77|     expect(a.tiempo_min).toBe(60)
+     78|   })
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/9]⎯
+
+ FAIL  tests/motores.test.js > Autómata celular > el fuego se propaga preferentemente a sotavento
+AssertionError: expected 0 to be greater than 0
+ ❯ tests/motores.test.js:89:19
+     87|     let norte = 0, sur = 0
+     88|     for (let i = 0; i < 120; i++) for (let j = 0; j < 120; j++) if (g.…
+     89|     expect(norte).toBeGreaterThan(sur * 2)
+       |                   ^
+     90|   })
+     91|   it('tick de 240×240 toma menos de 100 ms', () => {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/9]⎯
+
+ FAIL  tests/motores.test.js > Autómata celular > frente y perímetro devuelven coordenadas lat/lng
+AssertionError: expected 0 to be greater than 0
+ ❯ tests/motores.test.js:102:22
+    100|     for (let k = 0; k < 6; k++) g = tickCA(g, g.tiempo_min, 20, 180, 0…
+    101|     const f = gridAFrente(g), p = gridAPerimetro(g)
+    102|     expect(f.length).toBeGreaterThan(0); expect(p.length).toBeGreaterT…
+       |                      ^
+    103|     expect(Math.abs(f[0][0] + 41.42)).toBeLessThan(0.02)
+    104|   })
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/9]⎯
+
+ FAIL  tests/motores.test.js > Autómata celular > retardante reduce el área quemada y una línea de control la detiene
+AssertionError: expected 0.0169 to be less than 0.0169
+ ❯ tests/motores.test.js:110:20
+    108|     const conRet = run((g) => { const [lat, lng] = celdaALatLng(g, 45,…
+    109|     const conLinea = run((g) => { const [lat, lng] = celdaALatLng(g, 5…
+    110|     expect(conRet).toBeLessThan(base)
+       |                    ^
+    111|     expect(conLinea).toBeLessThan(base)
+    112|   })
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/9]⎯
+
+ FAIL  tests/motores.test.js > Autómata celular > expande el grid cuando el fuego se acerca al borde
+AssertionError: expected 40 to be 80 // Object.is equality
+
+- Expected
++ Received
+
+- 80
++ 40
+
+ ❯ tests/motores.test.js:116:21
+    114|     let g = initCA(null, -41.42, -72.7, 40, 40, 13, null, { modeloUnif…
+    115|     for (let k = 0; k < 40 && g.ancho === 40; k++) { g = tickCA(g, g.t…
+    116|     expect(g.ancho).toBe(80); expect(g.expansiones).toBe(1)
+       |                     ^
+    117|     expect(g.ardiendo.length).toBeGreaterThan(0)
+    118|     expect(g.state.length).toBe(6400)
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/9]⎯
+
+
+ Test Files  2 failed (2)
+      Tests  9 failed | 26 passed (35)
+   Start at  06:51:47
+   Duration  847ms (transform 115ms, setup 0ms, collect 378ms, tests 321ms, environment 0ms, prepare 290ms)
+

@@ -1,0 +1,49 @@
+{
+  "contrato": "POST /api/v1/simulacion/aplicar-retardante",
+  "funcion": "simulacionAplicarRetardante",
+  "valida": {
+    "entrada": {
+      "simulacion_id": "sim-endpoints",
+      "producto": "Phos-Chek",
+      "volumen": 1200,
+      "zona": {
+        "lat": -41.415,
+        "lng": -72.7,
+        "radio_m": 400
+      }
+    },
+    "salida": {
+      "ok": true,
+      "status": 200,
+      "data": {
+        "producto": "Phos-Chek",
+        "volumen": 1200,
+        "zona": {
+          "lat": -41.415,
+          "lng": -72.7,
+          "radio_m": 400
+        },
+        "celdas_tratadas": 2969,
+        "reduccion_ros": 0.33,
+        "duracion_min": 240,
+        "t_min": 60
+      }
+    }
+  },
+  "invalida": {
+    "entrada": {
+      "simulacion_id": "sim-endpoints",
+      "producto": "Phos-Chek",
+      "volumen": -1,
+      "zona": {
+        "lat": -41.415,
+        "lng": -72.7
+      }
+    },
+    "salida": {
+      "ok": false,
+      "status": 422,
+      "detail": "volumen debe ser un número entre 1 y 50000 litros"
+    }
+  }
+}

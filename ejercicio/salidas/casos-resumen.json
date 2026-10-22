@@ -1,0 +1,108 @@
+[
+  {
+    "n": 1,
+    "titulo": "Lectura Simple",
+    "turnos": [
+      {
+        "turno": "¿Cuál es el ROS actual?",
+        "ok": true,
+        "comando": "lectura_ros"
+      }
+    ]
+  },
+  {
+    "n": 2,
+    "titulo": "Control — Desplegar Brigada",
+    "turnos": [
+      {
+        "turno": "Desplegar Brigada R-22 al norte, acceso Los Copihues",
+        "ok": true,
+        "comando": "desplegar_recurso"
+      }
+    ]
+  },
+  {
+    "n": 3,
+    "titulo": "Proyección Alternativa",
+    "turnos": [
+      {
+        "turno": "¿Qué pasa si viento sube a 35 km/h en 30 min?",
+        "ok": true,
+        "comando": "proyectar"
+      }
+    ]
+  },
+  {
+    "n": 4,
+    "titulo": "Análisis Estratégico",
+    "turnos": [
+      {
+        "turno": "¿Brigada norte o este?",
+        "ok": true,
+        "comando": "analisis_estrategico"
+      }
+    ]
+  },
+  {
+    "n": 5,
+    "titulo": "Guardado de Decisión",
+    "turnos": [
+      {
+        "turno": "Guardá la estrategia actual",
+        "ok": true,
+        "comando": "guardar_estrategia"
+      }
+    ]
+  },
+  {
+    "n": 6,
+    "titulo": "Análisis de Amenaza",
+    "turnos": [
+      {
+        "turno": "Riesgo para Puerto Montt",
+        "ok": true,
+        "comando": "analisis_amenaza"
+      }
+    ]
+  },
+  {
+    "n": 7,
+    "titulo": "Modo Conversacional — Multi-turn",
+    "turnos": [
+      {
+        "turno": "¿Hay alternativa sin helicóptero?",
+        "ok": true,
+        "comando": "alternativa"
+      },
+      {
+        "turno": "¿Y retardante por tierra?",
+        "ok": true,
+        "comando": "alternativa"
+      },
+      {
+        "turno": "Ejecutar Plan C",
+        "ok": true,
+        "comando": "ejecutar_plan"
+      }
+    ]
+  },
+  {
+    "n": 8,
+    "titulo": "Exportación Inteligente",
+    "turnos": [
+      {
+        "turno": "Exporta todo a PDF",
+        "ok": true,
+        "comando": "exportar"
+      }
+    ]
+  },
+  {
+    "persistencia": {
+      "conversacion_id": "a3c92989-b290-4c4e-8340-de805e1f94d3",
+      "mensajes": 20,
+      "estrategias": 1,
+      "acciones_db": 5
+    }
+  }
+]

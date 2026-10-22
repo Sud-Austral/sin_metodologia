@@ -1,0 +1,11 @@
+
+ RUN  v3.2.4 D:/GitHub/sin_metodologia
+
+ ✓ tests/motores.test.js (19 tests) 181ms
+ ✓ tests/ia_api.test.js (16 tests) 175ms
+
+ Test Files  2 passed (2)
+      Tests  35 passed (35)
+   Start at  06:51:49
+   Duration  884ms (transform 138ms, setup 0ms, collect 404ms, tests 356ms, environment 0ms, prepare 291ms)
+

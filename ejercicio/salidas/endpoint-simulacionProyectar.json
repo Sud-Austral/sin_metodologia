@@ -1,0 +1,272 @@
+{
+  "contrato": "POST /api/v1/simulacion/proyectar",
+  "funcion": "simulacionProyectar",
+  "valida": {
+    "entrada": {
+      "simulacion_id": "sim-endpoints",
+      "viento_kmh": 35,
+      "en_min": 30
+    },
+    "salida": {
+      "ok": true,
+      "status": 200,
+      "data": {
+        "minutos": 30,
+        "cambios": {
+          "viento_kmh": 35,
+          "viento_dir": null,
+          "humedad": null
+        },
+        "actual": {
+          "nombre": "Endpoints",
+          "simulacion_id": "sim-endpoints",
+          "minutos": 90,
+          "hectareas": 4.34,
+          "ros_cabeza": 9.76,
+          "ros_flanco": 0.42,
+          "ros_cola": 0.21,
+          "altura_llama": 2,
+          "dir_viento": 180,
+          "vel_viento": 22,
+          "hum_combustible": 9,
+          "temp": 28,
+          "hr": 25,
+          "precipitacion": 0,
+          "modelo": "K1",
+          "modelo_nombre": "K1 Pastizal bajo",
+          "lat": -41.42,
+          "lng": -72.7,
+          "pausado": false,
+          "celdas_ardiendo": 35,
+          "celdas_quemadas": 222,
+          "frente_puntos": 35,
+          "perimetro_puntos": 88,
+          "amenazadas": [
+            {
+              "id": "ss1",
+              "lat": -41.410715199425084,
+              "lng": -72.6996,
+              "tipo": "school",
+              "nombre": "Escuela Pucatrihue",
+              "critico": true,
+              "distancia_m": 664,
+              "amenazada": false
+            },
+            {
+              "id": "ss2",
+              "lat": -41.41001519942508,
+              "lng": -72.7008,
+              "tipo": "hospital",
+              "nombre": "Posta rural",
+              "critico": true,
+              "distancia_m": 745,
+              "amenazada": false
+            },
+            {
+              "id": "ss3",
+              "lat": -41.41161519942508,
+              "lng": -72.68921854349124,
+              "tipo": "fire_station",
+              "nombre": "Cuartel bomberos",
+              "critico": true,
+              "distancia_m": 1052,
+              "amenazada": false
+            }
+          ],
+          "recursos": [
+            {
+              "id": "R-22",
+              "nombre": "Brigada R-22",
+              "tipo": "brigada",
+              "estado": "EN SITIO",
+              "eta_min": 0,
+              "lat": -41.41,
+              "lng": -72.7
+            },
+            {
+              "id": "R-15",
+              "nombre": "Brigada R-15",
+              "tipo": "brigada",
+              "estado": "DISPONIBLE",
+              "eta_min": null,
+              "lat": -41.432,
+              "lng": -72.712
+            },
+            {
+              "id": "H-01",
+              "nombre": "Helicóptero H-01",
+              "tipo": "helicoptero",
+              "estado": "DISPONIBLE",
+              "eta_min": null,
+              "lat": -41.432,
+              "lng": -72.712
+            },
+            {
+              "id": "E-5",
+              "nombre": "Excavadora E-5",
+              "tipo": "excavadora",
+              "estado": "DISPONIBLE",
+              "eta_min": null,
+              "lat": -41.432,
+              "lng": -72.712
+            },
+            {
+              "id": "C-1",
+              "nombre": "Camión cisterna C-1",
+              "tipo": "cisterna",
+              "estado": "DISPONIBLE",
+              "eta_min": null,
+              "lat": -41.432,
+              "lng": -72.712
+            },
+            {
+              "id": "M-1",
+              "nombre": "Motobombas (3 u.)",
+              "tipo": "motobomba",
+              "estado": "DISPONIBLE",
+              "eta_min": null,
+              "lat": -41.432,
+              "lng": -72.712
+            }
+          ],
+          "recursos_markdown": "- Brigada R-22 (R-22): EN SITIO — Línea manual 200 m / 45 min\n- Brigada R-15 (R-15): DISPONIBLE — Línea manual 200 m / 45 min\n- Helicóptero H-01 (H-01): DISPONIBLE — Bambi 1.200 L retardante\n- Excavadora E-5 (E-5): DISPONIBLE — Línea mecanizada 15 m ancho\n- Camión cisterna C-1 (C-1): DISPONIBLE — 5.000 L agua + gel\n- Motobombas (3 u.) (M-1): DISPONIBLE — 3 × 400 L/min",
+          "amenazadas_markdown": "- Escuela Pucatrihue (school): 664 m\n- Posta rural (hospital): 745 m\n- Cuartel bomberos (fire_station): 1052 m",
+          "acciones": 6,
+          "grid": "240×240",
+          "fuente_dem": "sintetico"
+        },
+        "proyectado": {
+          "nombre": "Endpoints",
+          "simulacion_id": "sim-endpoints",
+          "minutos": 90,
+          "hectareas": 4.88,
+          "ros_cabeza": 12.89,
+          "ros_flanco": 0.27,
+          "ros_cola": 0.14,
+          "altura_llama": 3.13,
+          "dir_viento": 180,
+          "vel_viento": 35,
+          "hum_combustible": 9,
+          "temp": 28,
+          "hr": 25,
+          "precipitacion": 0,
+          "modelo": "K2",
+          "modelo_nombre": "K2 Pastizal alto",
+          "lat": -41.42,
+          "lng": -72.7,
+          "pausado": false,
+          "celdas_ardiendo": 48,
+          "celdas_quemadas": 241,
+          "frente_puntos": 45,
+          "perimetro_puntos": 92,
+          "amenazadas": [
+            {
+              "id": "ss1",
+              "lat": -41.410715199425084,
+              "lng": -72.6996,
+              "tipo": "school",
+              "nombre": "Escuela Pucatrihue",
+              "critico": true,
+              "distancia_m": 612,
+              "amenazada": false
+            },
+            {
+              "id": "ss2",
+              "lat": -41.41001519942508,
+              "lng": -72.7008,
+              "tipo": "hospital",
+              "nombre": "Posta rural",
+              "critico": true,
+              "distancia_m": 693,
+              "amenazada": false
+            },
+            {
+              "id": "ss3",
+              "lat": -41.41161519942508,
+              "lng": -72.68921854349124,
+              "tipo": "fire_station",
+              "nombre": "Cuartel bomberos",
+              "critico": true,
+              "distancia_m": 1029,
+              "amenazada": false
+            }
+          ],
+          "recursos": [
+            {
+              "id": "R-22",
+              "nombre": "Brigada R-22",
+              "tipo": "brigada",
+              "estado": "EN SITIO",
+              "eta_min": 0,
+              "lat": -41.41,
+              "lng": -72.7
+            },
+            {
+              "id": "R-15",
+              "nombre": "Brigada R-15",
+              "tipo": "brigada",
+              "estado": "DISPONIBLE",
+              "eta_min": null,
+              "lat": -41.432,
+              "lng": -72.712
+            },
+            {
+              "id": "H-01",
+              "nombre": "Helicóptero H-01",
+              "tipo": "helicoptero",
+              "estado": "DISPONIBLE",
+              "eta_min": null,
+              "lat": -41.432,
+              "lng": -72.712
+            },
+            {
+              "id": "E-5",
+              "nombre": "Excavadora E-5",
+              "tipo": "excavadora",
+              "estado": "DISPONIBLE",
+              "eta_min": null,
+              "lat": -41.432,
+              "lng": -72.712
+            },
+            {
+              "id": "C-1",
+              "nombre": "Camión cisterna C-1",
+              "tipo": "cisterna",
+              "estado": "DISPONIBLE",
+              "eta_min": null,
+              "lat": -41.432,
+              "lng": -72.712
+            },
+            {
+              "id": "M-1",
+              "nombre": "Motobombas (3 u.)",
+              "tipo": "motobomba",
+              "estado": "DISPONIBLE",
+              "eta_min": null,
+              "lat": -41.432,
+              "lng": -72.712
+            }
+          ],
+          "recursos_markdown": "- Brigada R-22 (R-22): EN SITIO — Línea manual 200 m / 45 min\n- Brigada R-15 (R-15): DISPONIBLE — Línea manual 200 m / 45 min\n- Helicóptero H-01 (H-01): DISPONIBLE — Bambi 1.200 L retardante\n- Excavadora E-5 (E-5): DISPONIBLE — Línea mecanizada 15 m ancho\n- Camión cisterna C-1 (C-1): DISPONIBLE — 5.000 L agua + gel\n- Motobombas (3 u.) (M-1): DISPONIBLE — 3 × 400 L/min",
+          "amenazadas_markdown": "- Escuela Pucatrihue (school): 612 m\n- Posta rural (hospital): 693 m\n- Cuartel bomberos (fire_station): 1029 m",
+          "acciones": 6,
+          "grid": "240×240",
+          "fuente_dem": "sintetico"
+        },
+        "respuesta_markdown": "🔮 Escenario alternativo proyectado (30 min, viento 35 km/h):\n\n| Métrica | Actual (T+30) | Proyectado |\n|---------|--------|-----------|\n| ROS | 9.8 m/min | 12.9 m/min (+32%) |\n| Altura llama | 2.0 m | 3.1 m (+56%) |\n| Superficie | 4.3 ha | 4.9 ha (+12%) |\n| ETA Escuela Pucatrihue | T+77 min | T+48 min |\n\nAcción urgente:\n- Aumentar retardante a 3200 L\n- Solicitar helicóptero adicional\n\n¿Quieres continuar en este escenario?"
+      }
+    }
+  },
+  "invalida": {
+    "entrada": {
+      "simulacion_id": "sim-endpoints",
+      "viento_kmh": 35,
+      "en_min": 1
+    },
+    "salida": {
+      "ok": false,
+      "status": 422,
+      "detail": "en_min debe estar entre 5 y 600"
+    }
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "contrato": "POST /api/v1/despacho/desplegar",
+  "funcion": "despachoDesplegar",
+  "valida": {
+    "entrada": {
+      "simulacion_id": "sim-endpoints",
+      "recurso_id": "R-22",
+      "lat": -41.41,
+      "lng": -72.7
+    },
+    "salida": {
+      "ok": true,
+      "status": 200,
+      "data": {
+        "recurso_id": "R-22",
+        "nombre": "Brigada R-22",
+        "estado": "EN TRÁNSITO",
+        "destino": {
+          "lat": -41.41,
+          "lng": -72.7
+        },
+        "eta_min": 4,
+        "distancia_m": 2646,
+        "ruta": [
+          [
+            -41.432,
+            -72.712
+          ],
+          [
+            -41.41,
+            -72.7
+          ]
+        ],
+        "t_min": 60
+      }
+    }
+  },
+  "invalida": {
+    "entrada": {
+      "simulacion_id": "sim-endpoints",
+      "recurso_id": "R-22",
+      "lat": 999,
+      "lng": 0
+    },
+    "salida": {
+      "ok": false,
+      "status": 422,
+      "detail": "lat/lng inválidos"
+    }
+  }
+}

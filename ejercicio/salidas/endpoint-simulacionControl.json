@@ -1,0 +1,30 @@
+{
+  "contrato": "POST /api/v1/simulacion/control",
+  "funcion": "simulacionControl",
+  "valida": {
+    "entrada": {
+      "simulacion_id": "sim-endpoints",
+      "accion": "pausar"
+    },
+    "salida": {
+      "ok": true,
+      "status": 200,
+      "data": {
+        "accion": "pausar",
+        "pausado": true,
+        "tiempo_min": 60
+      }
+    }
+  },
+  "invalida": {
+    "entrada": {
+      "simulacion_id": "sim-endpoints",
+      "accion": "volar"
+    },
+    "salida": {
+      "ok": false,
+      "status": 422,
+      "detail": "accion debe ser \"pausar\" | \"reanudar\" | \"reiniciar\""
+    }
+  }
+}

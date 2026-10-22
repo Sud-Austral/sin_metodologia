@@ -1,0 +1,17 @@
+{
+  "grid": "240x240",
+  "celda_m": 13,
+  "ticks": 120,
+  "dt_min": 5,
+  "tiempo_simulado_min": 600,
+  "ms_promedio": 1.014,
+  "ms_mediana": 0.724,
+  "ms_p95": 3.175,
+  "ms_max": 10.344,
+  "hectareas_final": 160.72,
+  "celdas_ardiendo_final": 172,
+  "cumple_100ms": true,
+  "node": "v24.11.0",
+  "cpu": "Intel(R) Core(TM) i5-10300H CPU @ 2.50GHz",
+  "fecha": "2026-10-22T09:51:26.573Z"
+}

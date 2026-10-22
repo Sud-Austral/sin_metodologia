@@ -1,0 +1,36 @@
+{
+  "contrato": "POST /api/v1/estrategia/guardar",
+  "funcion": "estrategiaGuardar",
+  "valida": {
+    "entrada": {
+      "simulacion_id": "sim-endpoints",
+      "nombre": "Plan Brigada+Retardante Los Lagos T=60"
+    },
+    "salida": {
+      "ok": true,
+      "status": 200,
+      "data": {
+        "estrategia_id": "a6770375-cf6d-4b0f-8617-3e2a259380ac",
+        "nombre": "Plan Brigada+Retardante Los Lagos T=60",
+        "turnos": 2,
+        "archivo": "analisis_ia_2026-10-22.pdf",
+        "pdf_bytes": 8546,
+        "snapshot_recursos": [
+          {
+            "id": "R-22",
+            "estado": "EN TRÁNSITO",
+            "eta_min": 4
+          }
+        ]
+      }
+    }
+  },
+  "invalida": {
+    "entrada": {},
+    "salida": {
+      "ok": false,
+      "status": 422,
+      "detail": "simulacion_id es obligatorio"
+    }
+  }
+}
