@@ -78,7 +78,7 @@
     { "hash": "f32d8a2308a00afa9285b3458e0c330f0be5b9fb", "mensaje": "Motores (DEM, meteorologia, OSM, exportar), IA local y 8 funciones cliente" },
     { "hash": "257917d5563a242e920457810429d3817d51d618", "mensaje": "UI React (ChatPanel, ControlPanel 6 pestanas), escena Three.js y verificacion con navegador real" },
     { "hash": "46e2aa8b8d8375de91fd5e51b516158566ac9925", "mensaje": "Reproduce los 8 casos de uso contra la implementacion real" },
-    { "hash": "pendiente", "mensaje": "ejercicio/sin: GitHub Pages deploy (vite base + workflow)" }
+    { "hash": "a60b65b", "mensaje": "ejercicio/sin: GitHub Pages deploy (vite base + workflow)" }
   ],
   "comandos_reproducir": [
     "cd app && npm install && npm run dev",
