@@ -1,2 +1,0 @@
-# sin_metodologia
-
