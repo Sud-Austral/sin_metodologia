@@ -1,0 +1,29 @@
+{
+  "name": "simulador-3d-incendios",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "description": "Simulador 3D de incendios forestales (KITRAL CA + Three.js + IA en navegador via WebLLM). Solo frontend.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "bench": "node scripts/bench_tick.mjs",
+    "casos": "node scripts/casos_de_uso.mjs"
+  },
+  "dependencies": {
+    "@mlc-ai/web-llm": "0.2.79",
+    "jspdf": "3.0.1",
+    "jszip": "3.10.1",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "react-markdown": "10.1.0",
+    "three": "0.177.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "4.5.2",
+    "vite": "6.3.5",
+    "vitest": "3.2.4"
+  }
+}
