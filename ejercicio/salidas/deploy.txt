@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simulador 3D Incendios — Coigüe-1 v2.0</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ctext y='14' font-size='14'%3E🔥%3C/text%3E%3C/svg%3E" />
+    <script type="module" crossorigin src="/sin_metodologia/assets/index-IwgZ0ySF.js"></script>
+    <link rel="modulepreload" crossorigin href="/sin_metodologia/assets/react-Bb2W2Fho.js">
+    <link rel="modulepreload" crossorigin href="/sin_metodologia/assets/three-4Cfh6DC9.js">
+    <link rel="modulepreload" crossorigin href="/sin_metodologia/assets/exportar-1LtrjvJT.js">
+    <link rel="stylesheet" crossorigin href="/sin_metodologia/assets/index-BbcoSiTI.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
+workflow_run_id=39761805465 estado=success asset_local=index-IwgZ0ySF.js asset_publicado=index-IwgZ0ySF.js
