@@ -1,0 +1,17 @@
+{
+  "nota": "Verificación POSTERIOR a la corrida, sobre la URL publicada en GitHub Pages, con Chromium headless (Playwright). Hecha por el orquestador, no por el agente de la corrida; no forma parte de su tiempo.",
+  "comando": "CHROME=<chromium> node scratchpad/verificar_publicado.mjs https://sud-austral.github.io/sin_metodologia/ captura.png",
+  "commit_desplegado": "1e7c3a2",
+  "asset_publicado": "assets/index-IwgZ0ySF.js",
+  "resultado": {
+    "canvas": 1,
+    "simulacion_arranca_sola": true,
+    "hud_primera_lectura": { "tiempo": "T+60 min", "hectareas": "1.5 ha", "ros": "4.41 m/min", "fps": 19, "tick_ms": 13.9 },
+    "hud_segunda_lectura": { "tiempo": "T+105 min", "hectareas": "6.35 ha", "ros": "15.49 m/min", "fps": 16, "tick_ms": 11.0 },
+    "pestanas": ["FUEGO", "ESCENARIO", "RECURSOS", "PERIMETRO", "ANÁLISIS", "REPORTES"],
+    "errores_consola": [],
+    "requests_fallidas": ["overpass-api.de", "overpass.kumi.systems", "overpass.private.coffee (red bloqueada; ciudad sintética de fallback visible)"],
+    "captura": "ejercicio/salidas/captura_publicada_simulacion_2026-10-22.png"
+  },
+  "fps_nota": "FPS medidos con SwiftShader (render por software en headless); no representativos de una GPU real."
+}
